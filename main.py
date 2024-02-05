@@ -17,7 +17,7 @@ def main():
     # get_stop_words()
     
     # retrieve user information
-    print("RELEVANCE FEEDBACK INFORMATION RETRIEVAL SYSTEM \n\n")
+    print("=======================")
     query = input("Enter search words: ")
     result = search(query)
     precision = input("Enter desired precision (between 0 and 1): ")
@@ -29,7 +29,6 @@ def main():
         except:
             precision = input("Invalid. Please enter a value between 0 and 1: ")
             pass
-    print("\n\n")
     
     # terminate for <10 results
     query_size = len(result)
@@ -37,12 +36,14 @@ def main():
         print(f"Your search only returned {query_size} matches.")
         exit()
 
+    print("=======================\n\n")
     
     relevance = -1
     search_num = 1
     while relevance / 10 < float(precision) or relevance == 0:
         
-        print(f"SEARCH #{search_num} --------------------------")
+        
+        print(f"SEARCH #{search_num}")
         print(f"Query: {query}\n")
         
         relevance = 0
@@ -58,7 +59,7 @@ def main():
             d['url'] = item['link']
             d['description'] = item['snippet']
 
-            print(f"ARTICLE {i+1}:")
+            print(f"Result #{i+1}:")
             pprint.pprint(d)
             corpus.append(d['description'])
             if input("Relevant (Y/N)? ").capitalize() == 'Y':
@@ -67,8 +68,13 @@ def main():
                 
             print("\n\n")
                 
-
-        print(f"Search Relevance: {relevance/10}\n\n\n\n")
+        # output results
+        print("- - - - - - - - - - - -")
+        print("FEEDBACK SUMMARY")
+        print(f"Query: {query}")
+        print(f"Desired Precision: {precision}")
+        print(f"Search Precision: {relevance/10}")
+        print("=======================\n\n")
             
         if relevance/10 < float(precision):
             query = query_expansion(corpus, rel_idx, query)

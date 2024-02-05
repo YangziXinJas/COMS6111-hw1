@@ -1,7 +1,7 @@
 import pprint
 import numpy as np
 from googleapiclient.discovery import build
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
 from sklearn.metrics.pairwise import linear_kernel
 
 DEVELOPER_KEY = "AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg"
@@ -69,7 +69,7 @@ def main():
 
 
 
-def get_stop_words(d1, d2):
+def get_stop_words():
     '''Generate array of stop words from given file'''
     
     global stop_words
@@ -140,16 +140,15 @@ def query_expansion(corpus, rel_idx, query):
     '''Returns (string) new expanded query using tf-idf weights'''
     
     # obtain tf-idf vector representations
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(stop_words=ENGLISH_STOP_WORDS)
     doc_vecs = vectorizer.fit_transform(corpus)
     doc_vecs = doc_vecs.toarray()
     init_q_vec = vectorizer.transform([query])
     feature_names = vectorizer.get_feature_names_out()
     
-    mod_query_vec = rocchio(init_q_vec, doc_vecs, rel_idx)
     # generate best words to add to the query
+    mod_query_vec = rocchio(init_q_vec, doc_vecs, rel_idx)
     best_feature_idx = np.argsort(mod_query_vec)
-    
     new_words = []
     i = -1
     while len(new_words) < 2 and i > -len(best_feature_idx):
@@ -163,7 +162,6 @@ def query_expansion(corpus, rel_idx, query):
     
     print(f"New Query: {new_query}")
     
-    # exit()
     return new_query
 
 

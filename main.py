@@ -2,6 +2,7 @@ import pprint
 import numpy as np
 from googleapiclient.discovery import build
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
 DEVELOPER_KEY = "AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg"
 CX = "c6f4622f0b9a14652"
@@ -16,8 +17,8 @@ def main():
     # get_stop_words()
     
     # retrieve user information
-    user_query = input("Enter search words: ")
-    result = search(user_query)
+    query = input("Enter search words: ")
+    result = search(query)
     precision = input("Enter desired precision (between 0 and 1): ")
     while True:
         try:
@@ -39,26 +40,32 @@ def main():
     relevance = -1
     while relevance / 10 < float(precision) or relevance == 0:
         relevance = 0
-        corpus = [] # snippets of relevant results
+        corpus = [] 
+        rel_idx = [] # indices of relevant results
         
-        for item in result:
+        
+        for i in range(0, len(result)):
+            item = result[i]
+            
             d = {}
             d['title'] = item['title']
             d['url'] = item['link']
             d['description'] = item['snippet']
 
             pprint.pprint(d)
+            corpus.append(d['description'])
             if input("Relevant (Y/N)? ").capitalize() == 'Y':
                 relevance += 1
-                corpus.append(d['description'])
+                rel_idx.append(i)
+                
             print("\n\n")
                 
         print("\n\n\n\n\n")
         pprint.pprint(relevance/10)
             
         if relevance/10 < float(precision):
-            query = query_expansion(corpus)
-            # result = search(query)
+            query = query_expansion(corpus, rel_idx, query)
+            result = search(query) 
 
 
 
@@ -75,6 +82,30 @@ def get_stop_words(d1, d2):
         stop_words = set(word.strip() for word in file)        
 
     return
+
+def rocchio(init_q_vec, doc_vecs, rel_idx):
+    '''Rocchio algorithm: q_opt = argmax[sim(q,C_r) - sim(q,C_nr)]
+    rel: vector space of tf-idf values of relevant documents
+    non-rel: vector space of tf-idf values of non-relevant documents'''
+    
+    # separate relevant document vectors
+    rel = doc_vecs[rel_idx, :]
+    non_rel = np.delete(doc_vecs, rel_idx, axis=0)
+    
+    # calculate centroids
+    centroid_rel = np.mean(rel, axis=0)
+    centroid_non = np.mean(non_rel, axis=0)
+    
+    # algorithm weights
+    alpha = 1
+    beta = 0.75
+    gamma = 0.15
+    
+    # calculate modified query with Rocchio's
+    mod_query_vec = (alpha * init_q_vec) + (beta * centroid_rel) - (gamma * centroid_non)
+    
+    return np.ravel(mod_query_vec)
+
 
 
 def euclidian_length(vec):
@@ -105,14 +136,35 @@ def similarity(d1, d2):
     
     
     
-def query_expansion(corpus):
+def query_expansion(corpus, rel_idx, query):
     '''Returns (string) new expanded query using tf-idf weights'''
     
+    # obtain tf-idf vector representations
     vectorizer = TfidfVectorizer()
-    X = vectorizer.fit_transform(corpus)
+    doc_vecs = vectorizer.fit_transform(corpus)
+    doc_vecs = doc_vecs.toarray()
+    init_q_vec = vectorizer.transform([query])
     feature_names = vectorizer.get_feature_names_out()
-    X = X.toarray()
-    pass
+    
+    mod_query_vec = rocchio(init_q_vec, doc_vecs, rel_idx)
+    # generate best words to add to the query
+    best_feature_idx = np.argsort(mod_query_vec)
+    
+    new_words = []
+    i = -1
+    while len(new_words) < 2 and i > -len(best_feature_idx):
+        try_word = feature_names[best_feature_idx[i]]
+        if not try_word in query.split():
+            new_words.append(try_word)
+        
+        i -= 1
+    
+    new_query = query + " " + " ".join(new_words)
+    
+    print(f"New Query: {new_query}")
+    
+    # exit()
+    return new_query
 
 
 

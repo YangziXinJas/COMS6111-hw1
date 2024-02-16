@@ -155,7 +155,7 @@ def query_expansion(corpus, rel_idx, query):
     '''Returns (string) new expanded query using tf-idf weights'''
     
     # obtain tf-idf vector representations
-    vectorizer = TfidfVectorizer(stop_words=ENGLISH_STOP_WORDS)
+    vectorizer = TfidfVectorizer(stop_words=list(ENGLISH_STOP_WORDS))
     doc_vecs = vectorizer.fit_transform(corpus)
     doc_vecs = doc_vecs.toarray()
     init_q_vec = vectorizer.transform([query])

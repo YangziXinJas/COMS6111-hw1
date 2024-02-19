@@ -19,7 +19,7 @@ COMS-E6111 Project 1
 - `reorder_query(related_docs, query, new_words)`
   - using bigram probability to reorder query terms 
 ### Details
-- [A detailed description of your query-modification method (this is the core component of the project); this description should cover all important details of how you select the new keywords to add in each round, as well as of how you determine the query word order in each round]
+- Reordering of query terms is implemented using ideas adapted from https://web.stanford.edu/~jurafsky/slp3/3.pdf. We used bigram probability to determine the best ordering of query terms. This is achieved by preprocessing the documents marked as related and removing stopwords and irrelevant characters. Then we leveraged `nltk` to generate bigrams. While going through the document, we count up the occurrence of each word and each bigram which we can use to calculate P(word| previous_word). If there is no occurence of such bigram, we check the rest of the words and find if there exist a bigram we can generate with the remaining words in all the query terms (old + new query terms)
 
 
 ## Imports

@@ -9,7 +9,16 @@ COMS-E6111 Project 1
 
 
 ## Description
-- [A clear description of the internal design of your project, explaining the general structure of your code (i.e., what its main high-level components are and what they do), as well as acknowledging and describing all external libraries that you use in your code]
+### Overall Structure
+- main(client_key, engine_key, query, precision)
+  - Entry point to the application, handling the google query iteration and collecting user input on google results
+- query_expansion(corpus, rel_idx, query)
+  - driver function for query expansion using rocchio's algorithm, handling vectorization of documents and running bigram reordering of query terms
+- rocchio(init_q_vec, doc_vecs, rel_idx)
+  - Implementation of Roccio's algorithm
+- reorder_query(related_docs, query, new_words)
+  - using bigram probability to reorder query terms 
+### Details
 - [A detailed description of your query-modification method (this is the core component of the project); this description should cover all important details of how you select the new keywords to add in each round, as well as of how you determine the query word order in each round]
 
 

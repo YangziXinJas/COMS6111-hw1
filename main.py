@@ -34,7 +34,7 @@ def main(client_key, engine_key, query, precision):
     relevance = -1
     search_num = 1
     while relevance / 10 < float(precision) or relevance == 0:
-        print("\nparameters")
+        print("\nParameters:")
         print(f"Client Key = {client_key}")
         print(f"Engine Key = {engine_key}")
         print(f"Query      = {query}")
@@ -84,24 +84,10 @@ def main(client_key, engine_key, query, precision):
             query = query_expansion(corpus, rel_idx, query)
             result = search(query, client_key, engine_key) 
         else:
-            print("Desired precision reached, done")
+            print("Desired precision reached, done.")
         search_num += 1
 
 
-
-def get_stop_words():
-    '''Generate array of stop words from given file'''
-    
-    global stop_words
-    
-    if len(stop_words) > 0:
-        return
-        
-    file = "stop_words.txt"
-    with open(file, "r") as file:
-        stop_words = set(word.strip() for word in file)        
-
-    return
 
 def rocchio(init_q_vec, doc_vecs, rel_idx):
     '''Rocchio algorithm: q_opt = argmax[sim(q,C_r) - sim(q,C_nr)]
@@ -128,34 +114,6 @@ def rocchio(init_q_vec, doc_vecs, rel_idx):
 
 
 
-def euclidian_length(vec):
-    '''Returns the Euclidean Length of the 
-    tf-idf vector representation of a document'''
-    
-    el = np.square(vec)
-    el = np.sum(el)
-    el = np.sqrt(el)
-    
-    return el
-    
-    
-    
-def similarity(d1, d2):
-    '''Calculates Cosine Similarity of two documents, 
-    given their tf-idf vectors'''
-    
-    numerator = np.dot(d1, d2)
-    denominator = euclidian_length(d1) * euclidian_length(d2)
-    
-    try:
-        sim = numerator / denominator
-    except:
-        sim = 0
-        
-    return sim
-    
-    
-    
 def query_expansion(corpus, rel_idx, query):
     '''Returns (string) new expanded query using tf-idf weights'''
     
@@ -179,10 +137,16 @@ def query_expansion(corpus, rel_idx, query):
         i -= 1
 
     print(f"Augmenting by words: {new_words}")
+    
+    # reorder the query
     new_query = reorder_query(np.take(corpus, rel_idx), query.split(), new_words)
     return new_query
 
+
+
 def reorder_query(related_docs, query, new_words):
+    '''Returns (string) new query with reordered words based on bigram probabilities'''
+    
     bi_gram_count = {}
     word_count = {}
     word_count["<s>"] = len(related_docs)
@@ -277,6 +241,50 @@ def search(query, developer_key, cx):
         result = []
         
     return result
+    
+    
+    
+def euclidian_length(vec):
+    '''Returns the Euclidean Length of the 
+    tf-idf vector representation of a document'''
+    
+    el = np.square(vec)
+    el = np.sum(el)
+    el = np.sqrt(el)
+    
+    return el
+    
+    
+    
+def get_stop_words():
+    '''Generate array of stop words from custom file'''
+    
+    global stop_words
+    
+    if len(stop_words) > 0:
+        return
+        
+    file = "stop_words.txt"
+    with open(file, "r") as file:
+        stop_words = set(word.strip() for word in file)        
+
+    return
+
+
+
+def similarity(d1, d2):
+    '''Calculates Cosine Similarity of two documents, 
+    given their tf-idf vectors'''
+    
+    numerator = np.dot(d1, d2)
+    denominator = euclidian_length(d1) * euclidian_length(d2)
+    
+    try:
+        sim = numerator / denominator
+    except:
+        sim = 0
+        
+    return sim
     
     
     

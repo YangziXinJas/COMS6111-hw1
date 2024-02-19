@@ -30,17 +30,17 @@ def main(client_key, engine_key, query, precision):
     if query_size < 10:
         print(f"Your search only returned {query_size} matches.")
         exit()
-
-    print("=======================\n\n")
     
     relevance = -1
     search_num = 1
     while relevance / 10 < float(precision) or relevance == 0:
         
-        
         print(f"SEARCH #{search_num}")
         print(f"Query: {query}\n")
-        
+
+        print("Google Search Results:")
+        print("======================")
+
         relevance = 0
         corpus = [] 
         rel_idx = [] # indices of relevant results
@@ -55,7 +55,10 @@ def main(client_key, engine_key, query, precision):
             d['description'] = item['snippet']
 
             print(f"Result #{i+1}:")
-            pprint.pprint(d)
+            print(f"URL: {d['url']}")
+            print(f"Title: {d['title']}")
+            print(f"Summary: {d['description']}" )
+
             corpus.append(d['description'])
             if input("Relevant (Y/N)? ").capitalize() == 'Y':
                 relevance += 1
@@ -206,7 +209,7 @@ def reorder_query(related_docs, query, new_words):
                 bi_gram_count[bgram] = 1
 
     query.extend(new_words)
-    
+
 
     prev_word = "<s>"
     new_query = []

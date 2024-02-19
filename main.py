@@ -1,20 +1,26 @@
 import pprint
 import numpy as np
+import re
+from collections import Counter, defaultdict
 from googleapiclient.discovery import build
 from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
 from sklearn.metrics.pairwise import linear_kernel
+
+from nltk.lm.preprocessing import pad_both_ends
+from nltk.util import bigrams
+from nltk.corpus import stopwords
+import nltk
 
 DEVELOPER_KEY = "AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg"
 CX = "c6f4622f0b9a14652"
 stop_words = ""
 
+nltk.download('stopwords')
 
 def main():
     '''Build a service object for interacting with the API. Visit
     the Google APIs Console <http://code.google.com/apis/console>
     to get an API key for your own application.'''
-    
-    # get_stop_words()
     
     # retrieve user information
     print("=======================")
@@ -67,6 +73,10 @@ def main():
                 rel_idx.append(i)
                 
             print("\n\n")
+
+        if len(rel_idx) == 0:
+            print("NO RELEVANT RESULTS FOUND, EXITING")
+            break
                 
         # output results
         print("- - - - - - - - - - - -")
@@ -172,11 +182,62 @@ def query_expansion(corpus, rel_idx, query):
             new_words.append(try_word)
         
         i -= 1
-    
-    new_query = query + " " + " ".join(new_words)
-    
+
+    print(f"Augmenting by words: {new_words}")
+    new_query = reorder_query(np.take(corpus, rel_idx), query.split(), new_words)
     return new_query
 
+def reorder_query(related_docs, query, new_words):
+    bi_gram_count = {}
+    word_count = {}
+    word_count["<s>"] = len(related_docs)
+
+    for doc in related_docs:
+        # clean up punctuations and spaces
+        doc = doc.lower()
+        doc = re.sub('[^A-Za-z0-9 ]+', '', doc)
+        doc = " ".join(doc.split())
+        
+
+        # clean up stopwords
+        filtered_doc = [word for word in doc.split(" ") if word not in stopwords.words('english')]
+        padded_bigrams = list(pad_both_ends(filtered_doc, n=2))
+
+        for word in doc.split():
+            if word in word_count:
+                word_count[word] = word_count[word] + 1
+            else:
+                word_count[word] = 1
+
+        # find all bigram occurences
+        for bgram in list(bigrams(padded_bigrams)):
+            if bgram in bi_gram_count:
+                bi_gram_count[bgram] = bi_gram_count[bgram] + 1
+            else:
+                bi_gram_count[bgram] = 1
+
+    query.extend(new_words)
+    
+
+    prev_word = "<s>"
+    new_query = []
+    while prev_word != query[-1]:
+        Cx = word_count.get(prev_word, 0)
+        max_Cxy = None
+        max_P = -1
+        for word in query:
+            if word == prev_word or word in new_query:
+                continue
+            Cxy = bi_gram_count.get((prev_word, word), 0)
+            probability = Cxy / Cx
+            if probability > max_P:
+                max_Cxy = (prev_word, word)
+                max_P = probability
+        new_query.append(max_Cxy[1])
+        prev_word = max_Cxy[1]
+
+    return " ".join(new_query)
+    
 
 
 def search(query):

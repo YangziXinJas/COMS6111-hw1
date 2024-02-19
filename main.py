@@ -34,9 +34,12 @@ def main(client_key, engine_key, query, precision):
     relevance = -1
     search_num = 1
     while relevance / 10 < float(precision) or relevance == 0:
-        
+        print("\nparameters")
+        print(f"Client Key = {client_key}")
+        print(f"Engine Key = {engine_key}")
+        print(f"Query      = {query}")
+        print(f"Precision = {precision}")
         print(f"SEARCH #{search_num}")
-        print(f"Query: {query}\n")
 
         print("Google Search Results:")
         print("======================")
@@ -64,21 +67,20 @@ def main(client_key, engine_key, query, precision):
                 relevance += 1
                 rel_idx.append(i)
                 
-            print("\n\n")
+            print("\n")
 
         if len(rel_idx) == 0:
             print("NO RELEVANT RESULTS FOUND, EXITING")
-            break
+            exit()
                 
         # output results
-        print("- - - - - - - - - - - -")
+        print("=======================")
         print("FEEDBACK SUMMARY")
         print(f"Query: {query}")
-        print(f"Desired Precision: {precision}")
-        print(f"Search Precision: {relevance/10}")
-        print("=======================\n\n")
+        print(f"Precision: {relevance/10}")
             
         if relevance/10 < float(precision):
+            print(f"Still below the desired precision of {precision}")
             query = query_expansion(corpus, rel_idx, query)
             result = search(query, client_key, engine_key) 
         
@@ -263,9 +265,4 @@ if __name__ == "__main__":
     engine_key = str(sys.argv[2])
     precision = float(sys.argv[3])
     query = str(sys.argv[4])
-    print("\n\nparameters")
-    print(f"Client Key = {client_key}")
-    print(f"Engine Key = {engine_key}")
-    print(f"Query      = {query}")
-    print(f"Precision = {precision}")
     main(client_key, engine_key, query, precision)

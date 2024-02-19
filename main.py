@@ -1,7 +1,7 @@
+import sys
 import pprint
 import numpy as np
 import re
-from collections import Counter, defaultdict
 from googleapiclient.discovery import build
 from sklearn.feature_extraction.text import TfidfVectorizer, ENGLISH_STOP_WORDS
 from sklearn.metrics.pairwise import linear_kernel
@@ -17,24 +17,13 @@ stop_words = ""
 
 nltk.download('stopwords')
 
-def main():
+def main(client_key, engine_key, query, precision):
     '''Build a service object for interacting with the API. Visit
     the Google APIs Console <http://code.google.com/apis/console>
     to get an API key for your own application.'''
     
-    # retrieve user information
-    print("=======================")
-    query = input("Enter search words: ")
-    result = search(query)
-    precision = input("Enter desired precision (between 0 and 1): ")
-    while True:
-        try:
-            precision = float(precision)
-            assert precision >= 0 or precision <= 1
-            break
-        except:
-            precision = input("Invalid. Please enter a value between 0 and 1: ")
-            pass
+    # searc with google API
+    result = search(query, client_key, engine_key)
     
     # terminate for <10 results
     query_size = len(result)
@@ -88,7 +77,7 @@ def main():
             
         if relevance/10 < float(precision):
             query = query_expansion(corpus, rel_idx, query)
-            result = search(query) 
+            result = search(query, client_key, engine_key) 
         
         search_num += 1
 
@@ -240,19 +229,19 @@ def reorder_query(related_docs, query, new_words):
     
 
 
-def search(query):
+def search(query, developer_key, cx):
     '''Returns (list) the results of a Google search (dict)
     of the given query (string)'''
     
     service = build(
-        "customsearch", "v1", developerKey=DEVELOPER_KEY
+        "customsearch", "v1", developerKey=developer_key
     )
 
     res = (
         service.cse()
         .list(
             q=query,
-            cx=CX,
+            cx=cx,
         )
         .execute()
     )
@@ -267,4 +256,13 @@ def search(query):
     
     
 if __name__ == "__main__":
-    main()
+    client_key = str(sys.argv[1])
+    engine_key = str(sys.argv[2])
+    precision = float(sys.argv[3])
+    query = str(sys.argv[4])
+    print("\n\nparameters")
+    print(f"Client Key = {client_key}")
+    print(f"Engine Key = {engine_key}")
+    print(f"Query      = {query}")
+    print(f"Precision = {precision}")
+    main(client_key, engine_key, query, precision)

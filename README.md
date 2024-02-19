@@ -2,10 +2,10 @@
 COMS-E6111 Project 1
 
 
-## Run
+## How to run
 - $`pip install -r requirements.txt`
-- $`python3 main.py`
-- Follow command line prompts to enter query and precision.
+- $`python3 main.py <google api key> <google engine id> <precision> <query>`
+  -  Make sure the query terms are wrapped in parentheses
 
 
 ## Description
@@ -31,6 +31,7 @@ Files included:
 - `main.py`
 - `README.md`
 - `requirements.txt`
+- `transcript.txt`
 
 Keys:
 - Google Custom Search Engine JSON API Key: AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg

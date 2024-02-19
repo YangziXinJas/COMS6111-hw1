@@ -43,7 +43,6 @@ Reordering of query terms is implemented using ideas adapted from Chapter 3, ["N
 
 
 ## Imports
-- `pprint`: print search results neatly
 - `numpy`: vector space manipulation and other calculations
 - `googleapiclient.discovery.build`: query Google
 - `sklearn.feature_extraction.text.TfidfVectorizer`: calculate tf-idf weights, generate document vectors

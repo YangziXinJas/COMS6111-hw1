@@ -1,0 +1,523 @@
+Test Case 1:
+
+yx2810@cs6111-instance:~/COMS6111-hw1$ python3 main.py AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg c6f4622f0b9a14652 0.9 "per se"
+[nltk_data] Downloading package stopwords to /home/yx2810/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = per se
+Precision = 0.9
+SEARCH #1
+Google Search Results:
+======================
+Result #1:
+URL: https://www.thomaskeller.com/perseny
+Title: Per Se | Thomas Keller Restaurant Group
+Summary: Per Se. Per Se Front Door. center. About. About; Restaurant · Team · Info & Directions · Gift Experiences · Reservations; Menus & Stories. Menus & Stories
+Relevant (Y/N)? y
+
+
+Result #2:
+URL: https://www.merriam-webster.com/dictionary/perse
+Title: Perse Definition & Meaning - Merriam-Webster
+Summary: The meaning of PERSE is of a dark grayish blue resembling indigo. How to use perse in a sentence. Did you know?
+Relevant (Y/N)? n
+
+
+Result #3:
+URL: https://www.exploretock.com/perse
+Title: Per Se - New York, NY | Tock
+Summary: Opened in 2004, Per Se is Thomas Keller's acclaimed interpretation of The French Laundry in the Deutsche Bank Center at Columbus Circle.
+Relevant (Y/N)? y
+
+
+Result #4:
+URL: https://guide.michelin.com/us/en/new-york-state/new-york/restaurant/per-se
+Title: Per Se – New York - a MICHELIN Guide Restaurant
+Summary: Per Se – a Three Stars: Exceptional cuisine restaurant in the 2023 MICHELIN Guide USA. The MICHELIN inspectors' point of view, information on prices, ...
+Relevant (Y/N)? y
+
+
+Result #5:
+URL: https://www.instagram.com/perseny/
+Title: Per Se (@perseny) • Instagram photos and videos
+Summary: 269K Followers, 199 Following, 943 Posts - See Instagram photos and videos from Per Se (@perseny)
+Relevant (Y/N)? y
+
+
+Result #6:
+URL: https://en.wikipedia.org/wiki/wikt:per_se
+Title: per se - Wiktionary, the free dictionary
+Summary: From Latin per sē (“by itself”), from per (“by, through”) and sē (“itself, himself, herself, themselves”).
+Relevant (Y/N)? n
+
+
+Result #7:
+URL: https://dictionary.cambridge.org/us/dictionary/english/per-se
+Title: PER SE | definition in the Cambridge English Dictionary
+Summary: PER SE meaning: 1. by or of itself: 2. by or of itself: 3. by or of itself: . Learn more.
+Relevant (Y/N)? n
+
+
+Result #8:
+URL: https://en.wikipedia.org/wiki/Per_Se_(restaurant)
+Title: Per Se (restaurant) - Wikipedia
+Summary: Per Se (restaurant) ... Per Se is a New American and French restaurant located at The Shops at Columbus Circle, on the fourth floor of the Deutsche Bank Center at ...
+Relevant (Y/N)? y
+
+
+Result #9:
+URL: https://www.jamesperse.com/
+Title: James Perse Los Angeles
+Summary: James Perse. Women. Women; Apparel. Apparel Main Menu; New Arrivals · At Home Essentials · Classics · Dresses/Jumpsuits · Sweaters/Cashmere · T-shirts.
+Relevant (Y/N)? n
+
+
+Result #10:
+URL: https://www.law.cornell.edu/wex/per_se
+Title: per se | Wex | US Law | LII / Legal Information Institute
+Summary: Primary tabs. Latin for “by itself,” in other words, inherently. For example, in tort law, a statutory violation is negligence per se. One of the elements a ...
+Relevant (Y/N)? n
+
+
+=======================
+FEEDBACK SUMMARY
+Query: per se
+Precision: 0.5
+Still below the desired precision of 0.9
+Augmenting by words: ['restaurant', 'center']
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = per se restaurant center
+Precision = 0.9
+SEARCH #2
+Google Search Results:
+======================
+Result #1:
+URL: https://www.thomaskeller.com/perseny
+Title: Per Se | Thomas Keller Restaurant Group
+Summary: Private Dining & Events · Per Se. Per Se Front Door. center. About. About; Restaurant · Team · Info & Directions · Gift Experiences · Reservations; Menus & ...
+Relevant (Y/N)? y
+
+
+Result #2:
+URL: https://en.wikipedia.org/wiki/Per_Se_(restaurant)
+Title: Per Se (restaurant) - Wikipedia
+Summary: Per Se is a New American and French restaurant located at The Shops at Columbus Circle, on the fourth floor of the Deutsche Bank Center at 10 Columbus ...
+Relevant (Y/N)? y
+
+
+Result #3:
+URL: https://www.thomaskeller.com/new-york-new-york/per-se/restaurant
+Title: Opened in 2004, Per Se is Thomas Keller's acclaimed New York ...
+Summary: Restaurant Opened in 2004, Per Se is Thomas Keller's acclaimed New York interpretation of The French Laundry in the Deutsche Bank Center at Columbus Circle.
+Relevant (Y/N)? y
+
+
+Result #4:
+URL: https://www.tripadvisor.com/Restaurant_Review-g60763-d425628-Reviews-Per_Se-New_York_City_New_York.html
+Title: PER SE, New York City - Hell's Kitchen - Menu, Prices & Restaurant ...
+Summary: Per Se, New York City: See 1875 unbiased reviews of Per Se, rated 4.5 of 5 on Tripadvisor and ranked #85 of 13137 restaurants in New York City.
+Relevant (Y/N)? y
+
+
+Result #5:
+URL: https://www.exploretock.com/perse
+Title: Per Se - New York, NY | Tock
+Summary: ... Per Se. New York, NY · Fine Dining · $$$$. Opened in 2004, Per Se is Thomas Keller's acclaimed interpretation of The French Laundry in the Deutsche Bank Center ...
+Relevant (Y/N)? y
+
+
+Result #6:
+URL: https://www.nytimes.com/2011/10/12/dining/reviews/per-se-nyc-restaurant-review.html
+Title: Per Se — NYC — Restaurant Review - The New York Times
+Summary: Oct 11, 2011 ... Per Se, in the Time Warner Center, is the best restaurant in New York City.
+Relevant (Y/N)? y
+
+
+Result #7:
+URL: https://www.instagram.com/perseny/
+Title: Per Se (@perseny) • Instagram photos and videos
+Summary: Per Se. रेस्टुरेन्ट. Chef Thomas Keller's 3-Star Michelin restaurant overlooking Columbus Circle & Central Park located in New York City. 10 ...
+Relevant (Y/N)? y
+
+
+Result #8:
+URL: https://www.grubstreet.com/2009/09/jonathan_benno_will_leave_per.html
+Title: Jonathan Benno Will Leave Per Se for Lincoln Center Project
+Summary: Sep 11, 2009 ... Per Se's sous-chef, Eli Kaimeh, will now become chef de cuisine. Jonathan Benno Leaving Per Se For New Lincoln Center Restaurant [NYT/Diner's ...
+Relevant (Y/N)? y
+
+
+Result #9:
+URL: https://www.nytimes.com/2004/09/08/dining/the-magic-of-napa-with-urban-polish.html
+Title: The Magic of Napa With Urban Polish - The New York Times
+Summary: Sep 8, 2004 ... Frank Bruni reviews Per Se, Thomas Keller's restaurant at Time Warner Center; photos (L)
+Relevant (Y/N)? y
+
+
+Result #10:
+URL: https://dinersjournal.blogs.nytimes.com/2009/09/11/jonathan-benno-leaving-per-se-for-new-lincoln-center-restaurant/
+Title: Jonathan Benno Leaving Per Se For New Lincoln Center Restaurant
+Summary: Sep 11, 2009 ... Jonathan Benno, the chef de cuisine at Per Se, will leave to become executive chef of The Patina Group's new restaurant in Lincoln Center, ...
+Relevant (Y/N)? y
+
+
+=======================
+FEEDBACK SUMMARY
+Query: per se restaurant center
+Precision: 1.0
+Desired precision reached, done
+
+
+Test Case 2:
+
+yx2810@cs6111-instance:~/COMS6111-hw1$ python3 main.py AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg c6f4622f0b9a14652 0.9 "wojcicki"
+[nltk_data] Downloading package stopwords to /home/yx2810/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = wojcicki
+Precision = 0.9
+SEARCH #1
+Google Search Results:
+======================
+Result #1:
+URL: https://en.wikipedia.org/wiki/Susan_Wojcicki
+Title: Susan Wojcicki - Wikipedia
+Summary: Susan Wojcicki ... Susan Diane Wojcicki (/wʊˈtʃɪtski/ woo-CHITS-kee; born July 5, 1968) is an American business executive who was the chief executive officer (CEO) ...
+Relevant (Y/N)? n
+
+
+Result #2:
+URL: https://twitter.com/susanwojcicki?lang=en
+Title: Susan Wojcicki (@SusanWojcicki) / X
+Summary: Susan Wojcicki's posts ... 's team and innovative solutions in sustainability and security to enable transparency and accountability for countries, communities ...
+Relevant (Y/N)? n
+
+
+Result #3:
+URL: https://www.instagram.com/susanwojcicki/?hl=en
+Title: Susan Wojcicki (@susanwojcicki) • Instagram photos and videos
+Summary: 55K Followers, 124 Following, 40 Posts - See Instagram photos and videos from Susan Wojcicki (@susanwojcicki)
+Relevant (Y/N)? n
+
+
+Result #4:
+URL: https://www.facebook.com/esther.wojcicki/
+Title: Esther Wojcicki
+Summary: Psi and was thriving academically. At home, he would tell us endless stories of his life and friends at Berkeley. Marco's life was cut too short. And we are all
+Relevant (Y/N)? n
+
+
+Result #5:
+URL: https://www.instagram.com/heywoj/?hl=en
+Title: Esther Wojcicki (@heywoj) • Instagram photos and videos
+Summary: 7661 Followers, 1578 Following, 1870 Posts - See Instagram photos and videos from Esther Wojcicki (@heywoj)
+Relevant (Y/N)? n
+
+
+Result #6:
+URL: https://www.linkedin.com/in/susan-wojcicki-b136a99
+Title: Susan Wojcicki - YouTube | LinkedIn
+Summary: View Susan Wojcicki's profile on LinkedIn, the world's largest professional community. Susan has 2 jobs listed on their profile. See the complete profile on ...
+Relevant (Y/N)? n
+
+
+Result #7:
+URL: https://people.com/son-of-susan-wojcicki-found-dead-at-uc-berkeley-8584597
+Title: Son of Former YouTube CEO Susan Wojcicki Found Dead at UC ...
+Summary: 2 days ago ... Marco Troper, a UC Berkeley student who was the 19-year-old son of former YouTube CEO Susan Wojcicki, was found dead on his college campus ...
+Relevant (Y/N)? n
+
+
+Result #8:
+URL: https://www.linkedin.com/in/ed-wojcicki-bb02abb
+Title: Ed Wojcicki - Retired... but Consulting and Writing - Retired | LinkedIn
+Summary: Author/co-author of three books, freelance writer and editor, author of a wide range of articles on topics ranging from Illinois government to Henri Nouwen to ...
+Relevant (Y/N)? n
+
+
+Result #9:
+URL: https://abc7chicago.com/marco-troper-former-youtube-ceo-susan-wojcicki-son-dies-uc-berkeley-student/14441325/
+Title: Former YouTube CEO Susan Wojcicki's son dies at UC Berkeley ...
+Summary: 22 hours ago ... Esther Wojcicki, the mother of the former YouTube executive Susan Wojcicki, said in a Facebook post that the family is "devastated beyond ...
+Relevant (Y/N)? n
+
+
+Result #10:
+URL: https://www.forbes.com/profile/susan-wojcicki/
+Title: Susan Wojcicki
+Summary: 32 Susan Wojcicki on the 2023 America's Self-Made Women - Susan Wojcicki was CEO of Alphabet subsidiary YouTube from 2014 until February 2023. She now.
+Relevant (Y/N)? n
+
+
+NO RELEVANT RESULTS FOUND, EXITING
+
+
+
+Test Case 3:
+
+python3 main.py AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg c6f4622f0b9a14652 0.9 "cases"
+[nltk_data] Downloading package stopwords to /home/yx2810/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = cases
+Precision = 0.9
+SEARCH #1
+Google Search Results:
+======================
+Result #1:
+URL: https://www.cases.org/
+Title: CASES: Home
+Summary: From court and program offices in the Bronx, Brooklyn, and Manhattan, CASES provides community-based alternatives to jail and prison. These programs address ...
+Relevant (Y/N)? n
+
+
+Result #2:
+URL: https://www.icc-cpi.int/cases
+Title: cases | International Criminal Court
+Summary: Banda. At large. Case also involved Saleh Mohammed Jerbo Jamus but proceedings against him were terminated on 4 October 2013 following his passing. On 7 March ...
+Relevant (Y/N)? n
+
+
+Result #3:
+URL: https://www.icj-cij.org/cases
+Title: Cases | INTERNATIONAL COURT OF JUSTICE
+Summary: Main navigation ... The Court has a twofold role: to settle, in accordance with international law, legal disputes submitted to it by States (contentious cases) ...
+Relevant (Y/N)? n
+
+
+Result #4:
+URL: https://www.worldometers.info/coronavirus/
+Title: COVID - Coronavirus Statistics - Worldometer
+Summary: Daily and weekly updated statistics tracking the number of COVID-19 cases, recovered, and deaths. Historical data with cumulative charts, graphs, ...
+Relevant (Y/N)? y
+
+
+Result #5:
+URL: https://www.casetify.com/
+Title: CASETiFY: Show Your Colors
+Summary: CASETiFY - We make the most sustainable yet protective phone cases for iPhone 15 / iPhone 15 Pro / iPhone 15 Plus / iPhone 15 Pro Max and tech accessories.
+Relevant (Y/N)? n
+
+
+Result #6:
+URL: https://www.oyez.org/cases
+Title: 2023-2024 Term | Oyez
+Summary: US Supreme Court cases from the 2023-2024 term.
+Relevant (Y/N)? n
+
+
+Result #7:
+URL: https://casesearch.courts.state.md.us/
+Title: Maryland Judiciary Case Search
+Summary: Confidential records and information will not be returned in your search results. The information displayed on this Web Site is generated from computerized ...
+Relevant (Y/N)? n
+
+
+Result #8:
+URL: https://acis.eoir.justice.gov/en/
+Title: Automated Case Information
+Summary: Case information from this automated resource is provided for convenience only. Documents the immigration court or Board of Immigration Appeals issue to you or ...
+Relevant (Y/N)? n
+
+
+Result #9:
+URL: https://www.cdc.gov/measles/cases-outbreaks.html
+Title: Measles Cases and Outbreaks | CDC
+Summary: Measles cases in 2019 · From January 1 to December 31, 2019, 1,274* individual cases of measles were confirmed in 31 states. · This is the greatest number of ...
+Relevant (Y/N)? n
+
+
+Result #10:
+URL: https://pacer.uscourts.gov/
+Title: Public Access to Court Electronic Records | PACER: Federal Court ...
+Summary: Search for a case in the federal court where the case was filed, or; Search a nationwide index of federal court cases. The PACER Service Center can assist you ...
+Relevant (Y/N)? n
+
+
+=======================
+FEEDBACK SUMMARY
+Query: cases
+Precision: 0.1
+Still below the desired precision of 0.9
+Augmenting by words: ['weekly', 'statistics']
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = cases weekly statistics
+Precision = 0.9
+SEARCH #2
+Google Search Results:
+======================
+Result #1:
+URL: https://www.cdc.gov/flu/weekly/index.htm
+Title: Weekly U.S. Influenza Surveillance Report | CDC
+Summary: As hospitalization data are received each week, prior case counts and rates are updated accordingly. Additional FluSurv-NET hospitalization surveillance ...
+Relevant (Y/N)? n
+
+
+Result #2:
+URL: https://covid.cdc.gov/
+Title: CDC COVID Data Tracker
+Summary: This webpage presents data on COVID-19 cases with information on pregnancy status reported to CDC. ... Sign up to receive the COVID Data Tracker Weekly Review.
+Relevant (Y/N)? y
+
+
+Result #3:
+URL: https://data.cms.gov/covid-19/covid-19-nursing-home-data
+Title: COVID-19 Nursing Home Data - Centers for Medicare & Medicaid ...
+Summary: Cases. Deaths. Weekly Staff COVID-19 Confirmed Cases. Note: The most recent week's data is considered preliminary and will be updated the following week. Cases.
+Relevant (Y/N)? y
+
+
+Result #4:
+URL: https://covid19.sanantonio.gov/Reports-Statistics/Surveillance
+Title: Surveillance - Case Numbers - City of San Antonio
+Summary: Explore data including: Cases & Deaths (Cumulative and Weekly).
+Relevant (Y/N)? y
+
+
+Result #5:
+URL: https://www.mass.gov/info-details/covid-19-reporting
+Title: COVID-19 Reporting | Mass.gov
+Summary: The COVID-19 Dashboard includes data on city/town COVID-19 activity, confirmed and probable cases of COVID-19, confirmed and probable deaths related to ...
+Relevant (Y/N)? y
+
+
+Result #6:
+URL: https://www.azdhs.gov/covid19/data/index.php
+Title: COVID-19 Surveillance data dashboard
+Summary: Public Health Statistics · Smoke-Free Arizona · Prevention · Chronic Disease and ... COVID-19 Cases by Week; Hospitalization; Hospital COVID-like & Influenza-like ...
+Relevant (Y/N)? y
+
+
+Result #7:
+URL: https://www.health.state.mn.us/diseases/flu/stats
+Title: Weekly Influenza and Respiratory Activity: Statistics - MN Dept. of ...
+Summary: Weekly influenza statistics. Updated 2/15/2024. Influenza Respiratory Illness Activity ... week, rather than trying to track every case. The MDH Public Health ...
+Relevant (Y/N)? n
+
+
+Result #8:
+URL: https://www.nj.gov/health/cd/statistics/covid/
+Title: Department of Health | COVID-19 Weekly Surveillance Reports
+Summary: This page lists weekly reports of the amount of COVID-19 cases in NJ.
+Relevant (Y/N)? y
+
+
+Result #9:
+URL: https://wonder.cdc.gov/nndss/nndss_weekly_tables_menu.asp
+Title: Weekly statistics from the National Notifiable Diseases Surveillance ...
+Summary: Cases reported by state health departments to CDC for weekly publication are subject to ongoing revision of information and delayed reporting. Therefore, ...
+Relevant (Y/N)? n
+
+
+Result #10:
+URL: http://publichealth.lacounty.gov/media/coronavirus/data/
+Title: LA County Daily COVID-19 Data - LA County Department of Public ...
+Summary: Updated once per week on Thursdays. Overview Graphs. Overview Table. Cases/Deaths. TK-12 Schools.
+Relevant (Y/N)? y
+
+
+=======================
+FEEDBACK SUMMARY
+Query: cases weekly statistics
+Precision: 0.7
+Still below the desired precision of 0.9
+Augmenting by words: ['covid', '19']
+
+parameters
+Client Key = AIzaSyDJZCCaWHDkdmn1dENt6Pynp9mcykVHtpg
+Engine Key = c6f4622f0b9a14652
+Query      = cases weekly statistics covid 19
+Precision = 0.9
+SEARCH #3
+Google Search Results:
+======================
+Result #1:
+URL: https://covid.cdc.gov/
+Title: CDC COVID Data Tracker
+Summary: This webpage presents data on COVID-19 cases with information on pregnancy status reported to CDC. ... Sign up to receive the COVID Data Tracker Weekly Review.
+Relevant (Y/N)? y
+
+
+Result #2:
+URL: https://www.cdc.gov/coronavirus/2019-ncov/covid-19-data-and-surveillance.html
+Title: Data & Surveillance | CDC
+Summary: Find links to the COVID-19 science agenda, updates, data and surveillance, and recent CDC articles, including MMWR articles and the EID journal.
+Relevant (Y/N)? y
+
+
+Result #3:
+URL: https://www.azdhs.gov/covid19/data/index.php
+Title: COVID-19 Surveillance data dashboard
+Summary: COVID-19 Deaths; Cases by Zip Code; COVID-19 Cases by Week; Hospitalization; Hospital COVID-like & Influenza-like illness Surveillance; Laboratory Testing ...
+Relevant (Y/N)? y
+
+
+Result #4:
+URL: https://data.cms.gov/covid-19/covid-19-nursing-home-data
+Title: COVID-19 Nursing Home Data - Centers for Medicare & Medicaid ...
+Summary: Weekly Resident COVID-19 Confirmed Cases and Deaths. Note: The most recent week's data is considered preliminary and will be updated the following week.
+Relevant (Y/N)? y
+
+
+Result #5:
+URL: https://www.michigan.gov/coronavirus
+Title: Coronavirus
+Summary: Below is the most recent data healthcare experts across the state have compiled. Weekly COVID-19 Confirmed and Probable Cases ... See Additional Data. Unexpected ...
+Relevant (Y/N)? y
+
+
+Result #6:
+URL: https://www.dshs.texas.gov/covid-19-coronavirus-disease/texas-covid-19-surveillance
+Title: Texas COVID-19 Surveillance | Texas DSHS
+Summary: COVID-19 case data for 2020-2021 are finalized. All other data are provisional and subject to change. **Cases for the current week include both cases reported ...
+Relevant (Y/N)? y
+
+
+Result #7:
+URL: https://www.nj.gov/health/cd/statistics/covid/
+Title: Department of Health | COVID-19 Weekly Surveillance Reports
+Summary: This page lists weekly reports of the amount of COVID-19 cases in NJ. ... Statistics, Reports & Publications; COVID-19 Weekly Surveillance Reports. Statistics ...
+Relevant (Y/N)? y
+
+
+Result #8:
+URL: https://www.mass.gov/info-details/covid-19-reporting
+Title: COVID-19 Reporting | Mass.gov
+Summary: Data are reported by week. Interpret recent data with caution as data ... COVID-19 Cases.
+Relevant (Y/N)? y
+
+
+Result #9:
+URL: https://ourworldindata.org/covid-cases
+Title: Coronavirus (COVID-19) Cases - Our World in Data
+Summary: Weekly and biweekly cases: where are confirmed cases increasing or falling? What is the daily number of confirmed cases? There was ...
+Relevant (Y/N)? y
+
+
+Result #10:
+URL: https://ww11.doh.state.fl.us/comm/_partners/covid19_report_archive/covid19-data/covid19_data_latest.pdf
+Title: COVID-19 Weekly Situation Report: State Overview
+Summary: Oct 13, 2023 ... All data are provisional and subject to change. Data include only Florida residents. Case data. Previous week. Cumulative. Vaccine data.
+Relevant (Y/N)? y
+
+
+=======================
+FEEDBACK SUMMARY
+Query: cases weekly statistics covid 19
+Precision: 1.0
+Desired precision reached, done

@@ -228,6 +228,25 @@ def reorder_query(related_docs, query, new_words):
             if probability > max_P:
                 max_Cxy = (prev_word, word)
                 max_P = probability
+
+        # if no bigram found, pick a word 
+        if max_Cxy == None:
+            for p in query:
+                # word already used, skip
+                if p in new_query:
+                    continue
+                Cx = word_count[p]
+                for c in query:
+                    if c == p or c in new_query:
+                        continue
+                    Cxy = bi_gram_count.get((p, c), -1)
+                    if Cxy == -1:
+                        continue
+                    probability = Cxy / Cx
+                    if probability > max_P:
+                        max_Cxy = (prev_word, p)
+                        max_P = probability
+                    
         new_query.append(max_Cxy[1])
         prev_word = max_Cxy[1]
 

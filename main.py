@@ -83,7 +83,8 @@ def main(client_key, engine_key, query, precision):
             print(f"Still below the desired precision of {precision}")
             query = query_expansion(corpus, rel_idx, query)
             result = search(query, client_key, engine_key) 
-        
+        else:
+            print("Desired precision reached, done")
         search_num += 1
 
 

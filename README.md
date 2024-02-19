@@ -20,6 +20,7 @@ COMS-E6111 Project 1
 - `sklearn.feature_extraction.text.TfidfVectorizer`: calculate tf-idf weights, generate document vectors
 - `sklearn.feature_extraction.text.ENGLISH_STOP_WORDS`: implement stop words
 - `sklearn.metrics.pairwise.linear_kernel`: calculate cosine similarity
+- `nltk`: used for stopword processing and bigram generation
 
 
 ## About

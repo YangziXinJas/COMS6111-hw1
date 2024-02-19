@@ -22,7 +22,7 @@ def main(client_key, engine_key, query, precision):
     the Google APIs Console <http://code.google.com/apis/console>
     to get an API key for your own application.'''
     
-    # searc with google API
+    # search with google API
     result = search(query, client_key, engine_key)
     
     # terminate for <10 results
@@ -31,6 +31,7 @@ def main(client_key, engine_key, query, precision):
         print(f"Your search only returned {query_size} matches.")
         exit()
     
+    # MAIN LOOP
     relevance = -1
     search_num = 1
     while relevance / 10 < float(precision) or relevance == 0:
@@ -44,11 +45,11 @@ def main(client_key, engine_key, query, precision):
         print("Google Search Results:")
         print("======================")
 
-        relevance = 0
-        corpus = [] 
+        relevance = 0 # number of relevant results
+        corpus = [] # corpus of descriptions of returned results
         rel_idx = [] # indices of relevant results
         
-        
+        # print results and get user feedback
         for i in range(0, len(result)):
             item = result[i]
             
@@ -79,6 +80,7 @@ def main(client_key, engine_key, query, precision):
         print(f"Query: {query}")
         print(f"Precision: {relevance/10}")
             
+        # check if precision is met
         if relevance/10 < float(precision):
             print(f"Still below the desired precision of {precision}")
             query = query_expansion(corpus, rel_idx, query)
